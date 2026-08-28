@@ -2,8 +2,8 @@
 
 GitHub 仓库打开 **Actions → Build Desktop Apps → Run workflow**，构建完成后在页面底部下载：
 
-- `SBS-Drone-Soccer-macOS-Apple-Silicon`：Mac M1/M2/M3/M4
-- `SBS-Drone-Soccer-Windows-x64`：Windows 64 位
+- `SBS-Drone-Soccer-macOS-Apple-Silicon`：Mac M1/M2/M3/M4，下载内容仅含一个 DMG 安装文件
+- `SBS-Drone-Soccer-Windows-x64`：Windows 64 位，下载内容仅含一个 EXE 安装文件
 
 桌面客户端使用 SBS 图标，学员端与机构管理后台会直接打包进安装包，不依赖 ChatGPT 登录，也不会打开 OpenAI 登录页面。
 
