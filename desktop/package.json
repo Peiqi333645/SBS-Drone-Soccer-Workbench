@@ -1,14 +1,15 @@
 {
   "name": "sbs-drone-soccer-desktop",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "SBS 无人机足球工作台桌面客户端",
   "main": "main.cjs",
-  "scripts": {"start":"electron .","dist":"electron-builder --publish never"},
+  "scripts": {"start":"npm run build:web && electron .","build:web":"vite build --config vite.config.mjs","dist":"npm run build:web && electron-builder --publish never"},
+  "dependencies": {"@vitejs/plugin-react":"^6.0.2","lucide-react":"^1.31.0","react":"^19.2.0","react-dom":"^19.2.0","vite":"^8.0.0"},
   "devDependencies": {"electron":"^39.0.0","electron-builder":"^26.0.12"},
   "build": {
     "appId":"com.sbs.dronesoccer.workbench",
     "productName":"SBS 无人机足球工作台",
-    "files":["main.cjs","preload.cjs"],
+    "files":["main.cjs","preload.cjs","dist-web/**/*"],
     "extraResources":[{"from":"../public/sbs-icon.png","to":"sbs-icon.png"}],
     "mac":{"target":["dmg"],"category":"public.app-category.education","icon":"../public/sbs-icon.png"},
     "win":{"target":["nsis"],"icon":"../public/sbs-icon.png"},
