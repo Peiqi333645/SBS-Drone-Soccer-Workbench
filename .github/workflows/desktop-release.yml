@@ -2,18 +2,18 @@ name: Build Desktop Apps
 on:
   workflow_dispatch:
   push:
-    branches: [main]
     tags: ['v*']
 jobs:
   build:
     strategy:
-      fail-fast: false
       matrix:
         include:
           - os: macos-14
             artifact: macOS-Apple-Silicon
+            installer: desktop/dist/*.dmg
           - os: windows-latest
             artifact: Windows-x64
+            installer: desktop/dist/*.exe
     runs-on: ${{ matrix.os }}
     defaults:
       run:
@@ -28,4 +28,5 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: SBS-Drone-Soccer-${{ matrix.artifact }}
-          path: desktop/dist/**
+          path: ${{ matrix.installer }}
+          if-no-files-found: error
